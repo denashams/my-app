@@ -2,8 +2,12 @@
   border: 1px solid #474866;
   border-radius: 6px;
   background-color: rgba(5, 57, 107, 0.6);
-  margin: 30px 0 auto;
+
+  margin: 100px 0 auto;
   padding: 20px;
+}
+.Weather .btn {
+  background-color: #26d3ca;
 }
 .Weather h1 {
   color: #26d3ca;

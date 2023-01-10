@@ -13,11 +13,7 @@ export default function weather() {
             />
           </div>
           <div className="col-6">
-            <input
-              type="submit"
-              value="Search"
-              className="btn btn-primary w-100"
-            />
+            <input type="submit" value="Search" className="btn w-100" />
           </div>
         </div>
       </form>
@@ -32,7 +28,7 @@ export default function weather() {
             <img
               src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
               alt="weather icon"
-              className="me-3"
+              className="me-3 mt-3"
             ></img>
           </div>
           <div className="float-start">
