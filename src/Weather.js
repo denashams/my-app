@@ -4,20 +4,20 @@ export default function weather() {
   return (
     <div className="Weather">
       <form>
-        <div className="row">
-          <div className="col-8">
+        <div className="row mb-3">
+          <div className="col-6">
             <input
               type="seatch"
               placeholder="Type a city"
-              className="search-box"
-            ></input>
+              className="form-control w-100"
+            />
           </div>
-          <div className="col-4">
+          <div className="col-6">
             <input
               type="submit"
               value="Search"
-              className="btn btn-primary"
-            ></input>
+              className="btn btn-primary w-100"
+            />
           </div>
         </div>
       </form>
@@ -27,12 +27,18 @@ export default function weather() {
         <li>Cloudy</li>
       </ul>
       <div className="row">
-        <div className="col-6">
-          <img
-            src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-            alt="weather icon"
-          ></img>
-          16°C
+        <div className="col-6 clearfix">
+          <div className="float-start">
+            <img
+              src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+              alt="weather icon"
+              className="me-3"
+            ></img>
+          </div>
+          <div className="float-start">
+            <span className="temperature">16°</span>
+            <span className="unit">C | F</span>
+          </div>
         </div>
         <div className="col-6">
           <ul>
