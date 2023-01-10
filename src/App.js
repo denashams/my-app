@@ -1,10 +1,12 @@
 import "./App.css";
+import Weather from "./Weather";
 
 function App() {
   return (
     <div className="App">
       <div className="container">
-        <h1>weather app</h1>
+        <Weather />
+
         <footer>
           {" "}
           <a
