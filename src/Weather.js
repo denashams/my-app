@@ -6,6 +6,7 @@ import axios from "axios";
 export default function Weather(props) {
   let [loaded, setLoaded] = useState(false);
   let [weatherData, setWeatherData] = useState({});
+  let [query, setQuery] = useState(props.defaultCity);
   function handleResponse(response) {
     setWeatherData({
       city: response.data.city,
@@ -16,22 +17,37 @@ export default function Weather(props) {
       humidity: response.data.temperature.humidity,
       wind: response.data.wind.speed,
       feelsLike: response.data.temperature.feels_like,
-      iconUrl: response.data.icon_url,
+      iconUrl: `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`,
     });
 
     setLoaded(true);
+  }
+  function search(){
+    let apiKey = "75cct101457333214a7f31a7d08dfbo0";
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${query}&key=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+
+  }
+  function handleSubmit(event){
+    event.preventDefault();
+    search();
+  }
+  function handleQuery(event){
+    setQuery(event.target.value);
   }
 
   if (loaded) {
     return (
       <div className="Weather">
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="row mb-3">
             <div className="col-6">
               <input
-                type="seatch"
+                type="search"
                 placeholder="Type a city"
                 className="form-control w-100"
+                autoFocus="on"
+                onChange={handleQuery}
               />
             </div>
             <div className="col-6">
@@ -54,7 +70,7 @@ export default function Weather(props) {
               <img
                 src={weatherData.iconUrl}
                 alt="weather icon"
-                className="me-3 mt-3"
+                className="me-3"
               ></img>
             </div>
             <div className="float-start">
@@ -75,9 +91,7 @@ export default function Weather(props) {
       </div>
     );
   } else {
-    let apiKey = "75cct101457333214a7f31a7d08dfbo0";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(handleResponse);
+  search(); 
     return "Loading";
   }
 }
