@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Weather.css";
 import FormattedDate from "./FormattedDate";
+import WeatherIcon from "./WeatherIcon";
 import axios from "axios";
 
 export default function Weather(props) {
@@ -17,7 +18,7 @@ export default function Weather(props) {
       humidity: response.data.temperature.humidity,
       wind: response.data.wind.speed,
       feelsLike: response.data.temperature.feels_like,
-      iconUrl: `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`,
+      icon: response.data.condition.icon,
     });
 
     setLoaded(true);
@@ -67,11 +68,11 @@ export default function Weather(props) {
         <div className="row">
           <div className="col-6 clearfix">
             <div className="float-start">
-              <img
-                src={weatherData.iconUrl}
-                alt="weather icon"
-                className="me-3"
-              ></img>
+              
+                <div className="float-start mt-3 me-3" >
+                <WeatherIcon code={weatherData.icon} />
+                </div>
+
             </div>
             <div className="float-start">
               <span className="temperature">
