@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Weather.css";
 import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
+import WeatherTemperature from "./WeatherTemperature";
 import axios from "axios";
 
 export default function Weather(props) {
@@ -75,10 +76,9 @@ export default function Weather(props) {
 
             </div>
             <div className="float-start">
-              <span className="temperature">
-                {Math.round(weatherData.temperature)}°
-              </span>
-              <span className="unit">C | F</span>
+              <WeatherTemperature celsius={weatherData.temperature}/>
+              
+              
             </div>
           </div>
           <div className="col-6">
