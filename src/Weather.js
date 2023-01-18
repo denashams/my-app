@@ -18,7 +18,6 @@ export default function Weather(props) {
       temperature: response.data.temperature.current,
       humidity: response.data.temperature.humidity,
       wind: response.data.wind.speed,
-      feelsLike: response.data.temperature.feels_like,
       icon: response.data.condition.icon,
     });
 
@@ -78,12 +77,10 @@ export default function Weather(props) {
             <div className="float-start">
               <WeatherTemperature celsius={weatherData.temperature}/>
               
-              
             </div>
           </div>
           <div className="col-6">
             <ul>
-              <li>Feels like: {Math.round(weatherData.feelsLike)}°</li>
               <li>Humidity: {weatherData.humidity}%</li>
               <li>Wind: {Math.round(weatherData.wind)} km/h</li>
             </ul>
