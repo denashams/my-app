@@ -25,7 +25,7 @@ return (<div className="WeatherTemperature">
 <span className="temperature">
         {Math.round(fahrenheitDegree)}°
       </span>
-      <span className="unit"> <a href="/" onClick={displayCelsius}> C</a> | F </span>
+      <span className="unit"> <a href="/" onClick={displayCelsius}> °C</a> | °F </span>
       </div>);
 
 }
