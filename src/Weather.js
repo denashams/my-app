@@ -3,6 +3,7 @@ import "./Weather.css";
 import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
 import WeatherTemperature from "./WeatherTemperature";
+import WeatherForecast from "./WeatherForecast";
 import axios from "axios";
 
 export default function Weather(props) {
@@ -70,7 +71,7 @@ export default function Weather(props) {
             <div className="float-start">
               
                 <div className="float-start mt-3 me-3" >
-                <WeatherIcon code={weatherData.icon} />
+                <WeatherIcon code={weatherData.icon} size={64} />
                 </div>
 
             </div>
@@ -86,6 +87,7 @@ export default function Weather(props) {
             </ul>
           </div>
         </div>
+        <WeatherForecast city={weatherData.city}/>
       </div>
     );
   } else {
