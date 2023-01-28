@@ -5,6 +5,8 @@ import WeatherIcon from "./WeatherIcon";
 import WeatherTemperature from "./WeatherTemperature";
 import WeatherForecast from "./WeatherForecast";
 import axios from "axios";
+import LoadingIcon from "./LoadingIcon";
+
 
 export default function Weather(props) {
   let [loaded, setLoaded] = useState(false);
@@ -92,6 +94,6 @@ export default function Weather(props) {
     );
   } else {
   search(); 
-    return "Loading";
+    return <LoadingIcon />;
   }
 }
